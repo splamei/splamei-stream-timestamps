@@ -45,6 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.recordedTxt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,7 +128,7 @@
             this.timeDisplay.HideSelection = false;
             this.timeDisplay.Location = new System.Drawing.Point(12, 140);
             this.timeDisplay.Name = "timeDisplay";
-            this.timeDisplay.Size = new System.Drawing.Size(431, 259);
+            this.timeDisplay.Size = new System.Drawing.Size(431, 243);
             this.timeDisplay.TabIndex = 6;
             this.timeDisplay.UseCompatibleStateImageBehavior = false;
             this.timeDisplay.View = System.Windows.Forms.View.List;
@@ -208,10 +209,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Controls";
             // 
+            // recordedTxt
+            // 
+            this.recordedTxt.AutoSize = true;
+            this.recordedTxt.Location = new System.Drawing.Point(12, 386);
+            this.recordedTxt.Name = "recordedTxt";
+            this.recordedTxt.Size = new System.Drawing.Size(90, 13);
+            this.recordedTxt.TabIndex = 13;
+            this.recordedTxt.Text = "Recorded 0 times";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(459, 441);
+            this.Controls.Add(this.recordedTxt);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -229,6 +240,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -250,6 +262,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label recordedTxt;
     }
 }
 

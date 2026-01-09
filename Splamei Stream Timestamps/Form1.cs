@@ -162,6 +162,8 @@ namespace Splamei_Stream_Timestamps
             statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
             displayElapsedTime = false;
             recordedDisplayTimer.Start();
+
+            recordedTxt.Text = $"Recorded {timestamps.Count} times";
         }
 
         public void clearStamps()
@@ -170,6 +172,8 @@ namespace Splamei_Stream_Timestamps
             clearBtn.Enabled = false;
 
             timeDisplay.Items.Clear();
+
+            recordedTxt.Text = "Recorded 0 times";
 
             updateTimestamps();
         }
