@@ -172,6 +172,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splamei Stream Timestamps";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
