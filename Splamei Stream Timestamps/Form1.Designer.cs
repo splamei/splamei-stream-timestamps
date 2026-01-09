@@ -40,6 +40,7 @@
             this.recordTime = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusTxt = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             this.startBtn.TabIndex = 2;
             this.startBtn.Text = "Start";
             this.startBtn.UseVisualStyleBackColor = true;
+            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
             // pauseBtn
             // 
@@ -79,6 +81,7 @@
             this.pauseBtn.TabIndex = 3;
             this.pauseBtn.Text = "Pause";
             this.pauseBtn.UseVisualStyleBackColor = true;
+            this.pauseBtn.Click += new System.EventHandler(this.pauseBtn_Click);
             // 
             // stopBtn
             // 
@@ -89,6 +92,7 @@
             this.stopBtn.TabIndex = 4;
             this.stopBtn.Text = "Stop";
             this.stopBtn.UseVisualStyleBackColor = true;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
             // 
             // clearBtn
             // 
@@ -99,18 +103,21 @@
             this.clearBtn.TabIndex = 5;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // timeDisplay
             // 
             this.timeDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.timeDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeDisplay.HideSelection = false;
             this.timeDisplay.Location = new System.Drawing.Point(12, 102);
             this.timeDisplay.Name = "timeDisplay";
             this.timeDisplay.Size = new System.Drawing.Size(560, 296);
             this.timeDisplay.TabIndex = 6;
             this.timeDisplay.UseCompatibleStateImageBehavior = false;
+            this.timeDisplay.View = System.Windows.Forms.View.List;
             // 
             // recordTime
             // 
@@ -121,6 +128,7 @@
             this.recordTime.TabIndex = 7;
             this.recordTime.Text = "Record Time";
             this.recordTime.UseVisualStyleBackColor = true;
+            this.recordTime.Click += new System.EventHandler(this.recordTime_Click);
             // 
             // progressBar
             // 
@@ -139,6 +147,10 @@
             this.statusTxt.Size = new System.Drawing.Size(115, 13);
             this.statusTxt.TabIndex = 9;
             this.statusTxt.Text = "Not recording. No data";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -179,6 +191,7 @@
         private System.Windows.Forms.Button recordTime;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label statusTxt;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
