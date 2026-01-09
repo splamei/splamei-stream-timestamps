@@ -42,7 +42,13 @@
             this.statusTxt = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.recordedDisplayTimer = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // delayNum
@@ -53,15 +59,15 @@
             0,
             0,
             65536});
-            this.delayNum.Location = new System.Drawing.Point(165, 11);
+            this.delayNum.Location = new System.Drawing.Point(158, 23);
             this.delayNum.Name = "delayNum";
-            this.delayNum.Size = new System.Drawing.Size(262, 20);
+            this.delayNum.Size = new System.Drawing.Size(259, 20);
             this.delayNum.TabIndex = 0;
             // 
             // delayTxt
             // 
             this.delayTxt.AutoSize = true;
-            this.delayTxt.Location = new System.Drawing.Point(13, 13);
+            this.delayTxt.Location = new System.Drawing.Point(6, 25);
             this.delayTxt.Name = "delayTxt";
             this.delayTxt.Size = new System.Drawing.Size(146, 13);
             this.delayTxt.TabIndex = 1;
@@ -71,7 +77,7 @@
             // 
             // startBtn
             // 
-            this.startBtn.Location = new System.Drawing.Point(16, 53);
+            this.startBtn.Location = new System.Drawing.Point(6, 24);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(75, 23);
             this.startBtn.TabIndex = 2;
@@ -82,7 +88,7 @@
             // pauseBtn
             // 
             this.pauseBtn.Enabled = false;
-            this.pauseBtn.Location = new System.Drawing.Point(98, 53);
+            this.pauseBtn.Location = new System.Drawing.Point(88, 24);
             this.pauseBtn.Name = "pauseBtn";
             this.pauseBtn.Size = new System.Drawing.Size(75, 23);
             this.pauseBtn.TabIndex = 3;
@@ -93,7 +99,7 @@
             // stopBtn
             // 
             this.stopBtn.Enabled = false;
-            this.stopBtn.Location = new System.Drawing.Point(179, 53);
+            this.stopBtn.Location = new System.Drawing.Point(169, 24);
             this.stopBtn.Name = "stopBtn";
             this.stopBtn.Size = new System.Drawing.Size(75, 23);
             this.stopBtn.TabIndex = 4;
@@ -104,7 +110,7 @@
             // clearBtn
             // 
             this.clearBtn.Enabled = false;
-            this.clearBtn.Location = new System.Drawing.Point(260, 53);
+            this.clearBtn.Location = new System.Drawing.Point(250, 24);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 23);
             this.clearBtn.TabIndex = 5;
@@ -119,9 +125,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.timeDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeDisplay.HideSelection = false;
-            this.timeDisplay.Location = new System.Drawing.Point(12, 102);
+            this.timeDisplay.Location = new System.Drawing.Point(12, 140);
             this.timeDisplay.Name = "timeDisplay";
-            this.timeDisplay.Size = new System.Drawing.Size(560, 296);
+            this.timeDisplay.Size = new System.Drawing.Size(431, 259);
             this.timeDisplay.TabIndex = 6;
             this.timeDisplay.UseCompatibleStateImageBehavior = false;
             this.timeDisplay.View = System.Windows.Forms.View.List;
@@ -129,7 +135,7 @@
             // recordTime
             // 
             this.recordTime.Enabled = false;
-            this.recordTime.Location = new System.Drawing.Point(342, 53);
+            this.recordTime.Location = new System.Drawing.Point(332, 24);
             this.recordTime.Name = "recordTime";
             this.recordTime.Size = new System.Drawing.Size(85, 23);
             this.recordTime.TabIndex = 7;
@@ -140,7 +146,7 @@
             // progressBar
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressBar.Location = new System.Drawing.Point(13, 416);
+            this.progressBar.Location = new System.Drawing.Point(19, 11);
             this.progressBar.MarqueeAnimationSpeed = 25;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(100, 13);
@@ -150,7 +156,7 @@
             // 
             this.statusTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.statusTxt.AutoSize = true;
-            this.statusTxt.Location = new System.Drawing.Point(119, 416);
+            this.statusTxt.Location = new System.Drawing.Point(125, 11);
             this.statusTxt.Name = "statusTxt";
             this.statusTxt.Size = new System.Drawing.Size(115, 13);
             this.statusTxt.TabIndex = 9;
@@ -165,30 +171,65 @@
             this.recordedDisplayTimer.Interval = 5000;
             this.recordedDisplayTimer.Tick += new System.EventHandler(this.recordedDisplayTimer_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.statusTxt);
+            this.panel1.Controls.Add(this.progressBar);
+            this.panel1.Location = new System.Drawing.Point(-7, 405);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(473, 40);
+            this.panel1.TabIndex = 10;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.delayTxt);
+            this.groupBox1.Controls.Add(this.delayNum);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(431, 55);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Config";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.startBtn);
+            this.groupBox2.Controls.Add(this.pauseBtn);
+            this.groupBox2.Controls.Add(this.stopBtn);
+            this.groupBox2.Controls.Add(this.recordTime);
+            this.groupBox2.Controls.Add(this.clearBtn);
+            this.groupBox2.Location = new System.Drawing.Point(12, 74);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(431, 60);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Controls";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 441);
-            this.Controls.Add(this.statusTxt);
-            this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.recordTime);
+            this.ClientSize = new System.Drawing.Size(459, 441);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.timeDisplay);
-            this.Controls.Add(this.clearBtn);
-            this.Controls.Add(this.stopBtn);
-            this.Controls.Add(this.pauseBtn);
-            this.Controls.Add(this.startBtn);
-            this.Controls.Add(this.delayTxt);
-            this.Controls.Add(this.delayNum);
-            this.MinimumSize = new System.Drawing.Size(457, 320);
+            this.MinimumSize = new System.Drawing.Size(475, 320);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splamei Stream Timestamps";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -207,6 +248,9 @@
         private System.Windows.Forms.Label statusTxt;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer recordedDisplayTimer;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
