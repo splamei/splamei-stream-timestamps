@@ -47,6 +47,7 @@
             // 
             // delayNum
             // 
+            this.delayNum.DecimalPlaces = 1;
             this.delayNum.Increment = new decimal(new int[] {
             1,
             0,
