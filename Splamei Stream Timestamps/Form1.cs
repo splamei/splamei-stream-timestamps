@@ -18,6 +18,7 @@ namespace Splamei_Stream_Timestamps
 
         public bool waiting = false;
         public bool paused = false;
+        public bool displayElapsedTime = true;
 
         public List<long> timestamps = new List<long>();
 
@@ -37,7 +38,6 @@ namespace Splamei_Stream_Timestamps
                 startBtn.Enabled = false;
                 timer1.Start();
 
-                Console.WriteLine(timeToWait);
                 if (timeToWait <= 0)
                 {
                     progressBar.Style = ProgressBarStyle.Marquee;
@@ -96,7 +96,11 @@ namespace Splamei_Stream_Timestamps
             }
 
             elapsedMilliseconds += 100;
-            statusTxt.Text = TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+
+            if (displayElapsedTime)
+            {
+                statusTxt.Text = TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+            }
         }
 
         private void stopBtn_Click(object sender, EventArgs e)
@@ -149,9 +153,15 @@ namespace Splamei_Stream_Timestamps
 
         private void recordTime_Click(object sender, EventArgs e)
         {
+            recordedDisplayTimer.Start();
+
             timestamps.Add(elapsedMilliseconds);
 
             timeDisplay.Items.Add(TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f"));
+
+            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+            displayElapsedTime = false;
+            recordedDisplayTimer.Start();
         }
 
         public void clearStamps()
@@ -179,6 +189,12 @@ namespace Splamei_Stream_Timestamps
             {
                 e.Cancel = true;
             }
+        }
+
+        private void recordedDisplayTimer_Tick(object sender, EventArgs e)
+        {
+            displayElapsedTime = true;
+            recordedDisplayTimer.Stop();
         }
     }
 }

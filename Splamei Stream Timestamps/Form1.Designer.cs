@@ -41,6 +41,7 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.statusTxt = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.recordedDisplayTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,6 +159,11 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // recordedDisplayTimer
+            // 
+            this.recordedDisplayTimer.Interval = 5000;
+            this.recordedDisplayTimer.Tick += new System.EventHandler(this.recordedDisplayTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +205,7 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label statusTxt;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer recordedDisplayTimer;
     }
 }
 
