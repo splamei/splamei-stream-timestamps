@@ -46,6 +46,11 @@
             // 
             // delayNum
             // 
+            this.delayNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.delayNum.Location = new System.Drawing.Point(165, 11);
             this.delayNum.Name = "delayNum";
             this.delayNum.Size = new System.Drawing.Size(262, 20);
@@ -134,6 +139,7 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.progressBar.Location = new System.Drawing.Point(13, 416);
+            this.progressBar.MarqueeAnimationSpeed = 25;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(100, 13);
             this.progressBar.TabIndex = 8;

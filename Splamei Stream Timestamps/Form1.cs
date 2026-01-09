@@ -14,6 +14,7 @@ namespace Splamei_Stream_Timestamps
     {
         public long elapsedMilliseconds = 0;
         public float timeToWait = 0;
+        public int timeToWaitTotal = 0;
 
         public bool waiting = false;
         public bool paused = false;
@@ -35,6 +36,15 @@ namespace Splamei_Stream_Timestamps
                 recordTime.Enabled = true;
                 startBtn.Enabled = false;
                 timer1.Start();
+
+                Console.WriteLine(timeToWait);
+                if (timeToWait <= 0)
+                {
+                    progressBar.Style = ProgressBarStyle.Marquee;
+                    progressBar.Value = 0;
+                    progressBar.Maximum = 1;
+                }
+
                 return;
             }
 
@@ -45,8 +55,11 @@ namespace Splamei_Stream_Timestamps
 
             clearStamps();
 
+            timeToWaitTotal = (int)(delayNum.Value * 10);
             timeToWait = (float)delayNum.Value;
-            progressBar.Maximum = 100;
+            progressBar.Maximum = (int)(delayNum.Value * 10);
+            progressBar.Style = ProgressBarStyle.Blocks;
+
             waiting = true;
             paused = false;
 
@@ -67,7 +80,7 @@ namespace Splamei_Stream_Timestamps
 
                 statusTxt.Text = "Recording in " + timeToWait.ToString("0.0");
 
-                progressBar.Value = timeToWait <= 0 ? 0 : (int)(timeToWait * 10);
+                progressBar.Value = timeToWaitTotal - (int)(timeToWait * 10);
 
                 return;
             }
@@ -77,7 +90,9 @@ namespace Splamei_Stream_Timestamps
                 waiting = false;
                 recordTime.Enabled = true;
 
-                return;
+                progressBar.Style = ProgressBarStyle.Marquee;
+                progressBar.Value = 0;
+                progressBar.Maximum = 1;
             }
 
             elapsedMilliseconds += 100;
@@ -100,6 +115,9 @@ namespace Splamei_Stream_Timestamps
             recordTime.Enabled = false;
             startBtn.Enabled = true;
             clearBtn.Enabled = true;
+
+            progressBar.Value = 0;
+            progressBar.Style = ProgressBarStyle.Blocks;
         }
 
         private void pauseBtn_Click(object sender, EventArgs e)
@@ -108,6 +126,9 @@ namespace Splamei_Stream_Timestamps
             stopBtn.Enabled = false;
             recordTime.Enabled = false;
             startBtn.Enabled = true;
+
+            progressBar.Value = 0;
+            progressBar.Style = ProgressBarStyle.Blocks;
 
             paused = true;
 
