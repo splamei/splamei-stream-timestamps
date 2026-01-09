@@ -211,6 +211,7 @@
             // 
             // recordedTxt
             // 
+            this.recordedTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.recordedTxt.AutoSize = true;
             this.recordedTxt.Location = new System.Drawing.Point(12, 386);
             this.recordedTxt.Name = "recordedTxt";
