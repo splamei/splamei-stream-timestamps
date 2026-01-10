@@ -101,7 +101,7 @@ namespace Splamei_Stream_Timestamps
             if (delayStart)
             {
 
-                statusTxt.Text = "Recording in " + TimeSpan.FromMilliseconds(timeToWaitTotal - delayStopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+                statusTxt.Text = "Recording in " + TimeSpan.FromMilliseconds(timeToWaitTotal - delayStopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff");
 
                 Debug.WriteLine(timeToWaitTotal);
 
@@ -136,7 +136,7 @@ namespace Splamei_Stream_Timestamps
 
             if (displayElapsedTime)
             {
-                statusTxt.Text = TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+                statusTxt.Text = TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff");
             }
         }
 
@@ -216,7 +216,7 @@ namespace Splamei_Stream_Timestamps
             timeDisplay.Items.Clear();
             foreach (long timestamp in timestamps)
             {
-                timeDisplay.Items.Add(TimeSpan.FromMilliseconds(timestamp).ToString(@"hh\:mm\:ss\.f"));
+                timeDisplay.Items.Add(TimeSpan.FromMilliseconds(timestamp).ToString(@"hh\:mm\:ss\.ff"));
             }
         }
 
@@ -285,9 +285,9 @@ namespace Splamei_Stream_Timestamps
 
             timestamps.Add(stopwatch.ElapsedMilliseconds);
 
-            timeDisplay.Items.Add(TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f"));
+            timeDisplay.Items.Add(TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff"));
 
-            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff");
             displayElapsedTime = false;
             recordedDisplayTimer.Start();
 
