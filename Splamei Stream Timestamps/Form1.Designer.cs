@@ -50,10 +50,17 @@
             this.keyBindTimer = new System.Windows.Forms.Timer(this.components);
             this.keyBindingComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.starOnGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // delayNum
@@ -72,7 +79,7 @@
             // delayTxt
             // 
             this.delayTxt.AutoSize = true;
-            this.delayTxt.Location = new System.Drawing.Point(6, 25);
+            this.delayTxt.Location = new System.Drawing.Point(6, 26);
             this.delayTxt.Name = "delayTxt";
             this.delayTxt.Size = new System.Drawing.Size(146, 13);
             this.delayTxt.TabIndex = 1;
@@ -130,9 +137,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.timeDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeDisplay.HideSelection = false;
-            this.timeDisplay.Location = new System.Drawing.Point(12, 140);
+            this.timeDisplay.Location = new System.Drawing.Point(12, 159);
             this.timeDisplay.Name = "timeDisplay";
-            this.timeDisplay.Size = new System.Drawing.Size(431, 243);
+            this.timeDisplay.Size = new System.Drawing.Size(431, 248);
             this.timeDisplay.TabIndex = 6;
             this.timeDisplay.UseCompatibleStateImageBehavior = false;
             this.timeDisplay.View = System.Windows.Forms.View.List;
@@ -183,7 +190,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.statusTxt);
             this.panel1.Controls.Add(this.progressBar);
-            this.panel1.Location = new System.Drawing.Point(-7, 405);
+            this.panel1.Location = new System.Drawing.Point(-7, 429);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(473, 40);
             this.panel1.TabIndex = 10;
@@ -196,7 +203,7 @@
             this.groupBox1.Controls.Add(this.keyBindingComboBox);
             this.groupBox1.Controls.Add(this.delayTxt);
             this.groupBox1.Controls.Add(this.delayNum);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(431, 55);
             this.groupBox1.TabIndex = 11;
@@ -212,7 +219,7 @@
             this.groupBox2.Controls.Add(this.stopBtn);
             this.groupBox2.Controls.Add(this.recordTime);
             this.groupBox2.Controls.Add(this.clearBtn);
-            this.groupBox2.Location = new System.Drawing.Point(12, 74);
+            this.groupBox2.Location = new System.Drawing.Point(12, 93);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(431, 60);
             this.groupBox2.TabIndex = 12;
@@ -223,7 +230,7 @@
             // 
             this.recordedTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.recordedTxt.AutoSize = true;
-            this.recordedTxt.Location = new System.Drawing.Point(12, 386);
+            this.recordedTxt.Location = new System.Drawing.Point(12, 410);
             this.recordedTxt.Name = "recordedTxt";
             this.recordedTxt.Size = new System.Drawing.Size(90, 13);
             this.recordedTxt.TabIndex = 13;
@@ -280,15 +287,62 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Keybinding to record";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.starOnGitHubToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(459, 24);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // starOnGitHubToolStripMenuItem
+            // 
+            this.starOnGitHubToolStripMenuItem.Name = "starOnGitHubToolStripMenuItem";
+            this.starOnGitHubToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.starOnGitHubToolStripMenuItem.Text = "Star on GitHub";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(459, 441);
+            this.ClientSize = new System.Drawing.Size(459, 465);
             this.Controls.Add(this.recordedTxt);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.timeDisplay);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(475, 320);
             this.Name = "Form1";
@@ -302,6 +356,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,6 +385,12 @@
         private System.Windows.Forms.Timer keyBindTimer;
         private System.Windows.Forms.ComboBox keyBindingComboBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem starOnGitHubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
