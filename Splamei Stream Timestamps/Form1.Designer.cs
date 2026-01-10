@@ -45,17 +45,18 @@
             this.recordedDisplayTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.keyBindingComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.recordedTxt = new System.Windows.Forms.Label();
             this.keyBindTimer = new System.Windows.Forms.Timer(this.components);
-            this.keyBindingComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.starOnGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -188,6 +189,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.statusTxt);
             this.panel1.Controls.Add(this.progressBar);
             this.panel1.Location = new System.Drawing.Point(-7, 429);
@@ -210,36 +212,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Config";
             // 
-            // groupBox2
+            // label1
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.startBtn);
-            this.groupBox2.Controls.Add(this.pauseBtn);
-            this.groupBox2.Controls.Add(this.stopBtn);
-            this.groupBox2.Controls.Add(this.recordTime);
-            this.groupBox2.Controls.Add(this.clearBtn);
-            this.groupBox2.Location = new System.Drawing.Point(12, 93);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(431, 60);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Controls";
-            // 
-            // recordedTxt
-            // 
-            this.recordedTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.recordedTxt.AutoSize = true;
-            this.recordedTxt.Location = new System.Drawing.Point(12, 410);
-            this.recordedTxt.Name = "recordedTxt";
-            this.recordedTxt.Size = new System.Drawing.Size(90, 13);
-            this.recordedTxt.TabIndex = 13;
-            this.recordedTxt.Text = "Recorded 0 times";
-            // 
-            // keyBindTimer
-            // 
-            this.keyBindTimer.Interval = 10;
-            this.keyBindTimer.Tick += new System.EventHandler(this.timer2_Tick);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(250, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Keybinding to record";
             // 
             // keyBindingComboBox
             // 
@@ -278,14 +258,36 @@
             this.keyBindingComboBox.TabIndex = 2;
             this.keyBindingComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label1
+            // groupBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Keybinding to record";
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.startBtn);
+            this.groupBox2.Controls.Add(this.pauseBtn);
+            this.groupBox2.Controls.Add(this.stopBtn);
+            this.groupBox2.Controls.Add(this.recordTime);
+            this.groupBox2.Controls.Add(this.clearBtn);
+            this.groupBox2.Location = new System.Drawing.Point(12, 93);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(431, 60);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Controls";
+            // 
+            // recordedTxt
+            // 
+            this.recordedTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.recordedTxt.AutoSize = true;
+            this.recordedTxt.Location = new System.Drawing.Point(12, 410);
+            this.recordedTxt.Name = "recordedTxt";
+            this.recordedTxt.Size = new System.Drawing.Size(90, 13);
+            this.recordedTxt.TabIndex = 13;
+            this.recordedTxt.Text = "Recorded 0 times";
+            // 
+            // keyBindTimer
+            // 
+            this.keyBindTimer.Interval = 10;
+            this.keyBindTimer.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // menuStrip1
             // 
@@ -307,6 +309,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
             // starOnGitHubToolStripMenuItem
             // 
             this.starOnGitHubToolStripMenuItem.Name = "starOnGitHubToolStripMenuItem";
@@ -322,19 +331,22 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(395, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "By Splamei";
             // 
             // Form1
             // 
@@ -394,6 +406,7 @@
         private System.Windows.Forms.ToolStripMenuItem starOnGitHubToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
     }
 }
 
