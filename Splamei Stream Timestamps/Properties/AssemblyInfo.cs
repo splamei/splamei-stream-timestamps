@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Splamei Stream Timestamps")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A basic app to save timestamps while streaming and recording for future use")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Splamei")]
 [assembly: AssemblyProduct("Splamei Stream Timestamps")]
-[assembly: AssemblyCopyright("Copyright ©  2026")]
+[assembly: AssemblyCopyright("Copyright (c) 2026 Splamei - MIT Licence")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

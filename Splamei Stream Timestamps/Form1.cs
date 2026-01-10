@@ -278,5 +278,11 @@ namespace Splamei_Stream_Timestamps
         {
             using (Process.Start("https://github.com/splamei/splamei-stream-timestamps")) { }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
     }
 }
