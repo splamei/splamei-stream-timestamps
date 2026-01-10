@@ -45,7 +45,14 @@ namespace Splamei_Stream_Timestamps
                 startBtn.Enabled = false;
                 timer1.Start();
 
-                stopwatch.Start();
+                if (delayStart)
+                {
+                    delayStopwatch.Start();
+                }
+                else
+                {
+                    stopwatch.Start();
+                }
 
                 keyBindingComboBox.Enabled = false;
 
@@ -147,6 +154,7 @@ namespace Splamei_Stream_Timestamps
 
             timer1.Stop();
             stopwatch.Stop();
+            delayStopwatch.Stop();
 
             keyBindTimer.Stop();
             keyBindingComboBox.Enabled = true;
@@ -176,6 +184,7 @@ namespace Splamei_Stream_Timestamps
 
             timer1.Stop();
             stopwatch.Stop();
+            delayStopwatch.Stop();
 
             keyBindingComboBox.Enabled = true;
         }
