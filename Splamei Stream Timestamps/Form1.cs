@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Splamei_Stream_Timestamps
@@ -17,13 +11,17 @@ namespace Splamei_Stream_Timestamps
         [DllImport("User32.dll")]
         static extern short GetAsyncKeyState(Int32 vKey);
 
+        public Stopwatch stopwatch = new Stopwatch();
+        public Stopwatch delayStopwatch = new Stopwatch();
+
 
         public int recordKey = 0x70; // F1 key - https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 
 
-        public long elapsedMilliseconds = 0;
-        public float timeToWait = 0;
+        //public long elapsedMilliseconds = 0;
+        //public float timeToWait = 0;
         public int timeToWaitTotal = 0;
+        public bool delayStart = false;
 
         public bool waiting = false;
         public bool paused = false;
@@ -47,9 +45,11 @@ namespace Splamei_Stream_Timestamps
                 startBtn.Enabled = false;
                 timer1.Start();
 
+                stopwatch.Start();
+
                 keyBindingComboBox.Enabled = false;
 
-                if (timeToWait <= 0)
+                if (delayStopwatch.ElapsedMilliseconds <= 0)
                 {
                     progressBar.Style = ProgressBarStyle.Marquee;
                     progressBar.Value = 0;
@@ -66,17 +66,27 @@ namespace Splamei_Stream_Timestamps
 
             clearStamps();
 
-            timeToWaitTotal = (int)(delayNum.Value * 10);
-            timeToWait = (float)delayNum.Value;
-            progressBar.Maximum = (int)(delayNum.Value * 10);
+            timeToWaitTotal = (int)(delayNum.Value * 1000);
+            progressBar.Maximum = timeToWaitTotal;
             progressBar.Style = ProgressBarStyle.Blocks;
 
             waiting = true;
             paused = false;
 
-            elapsedMilliseconds = 0;
             timer1.Start();
             keyBindTimer.Start();
+
+            if (timeToWaitTotal > 0)
+            {
+                delayStart = true;
+                delayStopwatch.Reset();
+                delayStopwatch.Start();
+            }
+            else
+            {
+                stopwatch.Reset();
+                stopwatch.Start();
+            }
 
             pauseBtn.Enabled = true;
             stopBtn.Enabled = true;
@@ -88,13 +98,28 @@ namespace Splamei_Stream_Timestamps
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timeToWait > 0)
+            if (delayStart)
             {
-                timeToWait -= 0.1f;
 
-                statusTxt.Text = "Recording in " + timeToWait.ToString("0.0");
+                statusTxt.Text = "Recording in " + TimeSpan.FromMilliseconds(timeToWaitTotal - delayStopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
 
-                progressBar.Value = timeToWaitTotal - (int)(timeToWait * 10);
+                Debug.WriteLine(timeToWaitTotal);
+
+                if (delayStopwatch.ElapsedMilliseconds >= timeToWaitTotal)
+                {
+                    delayStart = false;
+                    delayStopwatch.Reset();
+                    delayStopwatch.Stop();
+                    progressBar.Value = 0;
+
+                    statusTxt.Text = "Recording";
+                    stopwatch.Reset();
+                    stopwatch.Start();
+
+                    return;
+                }
+
+                progressBar.Value = (int)(delayStopwatch.ElapsedMilliseconds);
 
                 return;
             }
@@ -109,11 +134,9 @@ namespace Splamei_Stream_Timestamps
                 progressBar.Maximum = 1;
             }
 
-            elapsedMilliseconds += 100;
-
             if (displayElapsedTime)
             {
-                statusTxt.Text = TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+                statusTxt.Text = TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
             }
         }
 
@@ -125,9 +148,10 @@ namespace Splamei_Stream_Timestamps
             }
 
             timer1.Stop();
+            stopwatch.Stop();
+
             keyBindTimer.Stop();
             keyBindingComboBox.Enabled = true;
-            elapsedMilliseconds = 0;
             statusTxt.Text = "Not recording. Data recorded";
 
             pauseBtn.Enabled = false;
@@ -153,6 +177,7 @@ namespace Splamei_Stream_Timestamps
             paused = true;
 
             timer1.Stop();
+            stopwatch.Stop();
 
             keyBindingComboBox.Enabled = true;
         }
@@ -258,11 +283,11 @@ namespace Splamei_Stream_Timestamps
 
             recordedDisplayTimer.Start();
 
-            timestamps.Add(elapsedMilliseconds);
+            timestamps.Add(stopwatch.ElapsedMilliseconds);
 
-            timeDisplay.Items.Add(TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f"));
+            timeDisplay.Items.Add(TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f"));
 
-            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
             displayElapsedTime = false;
             recordedDisplayTimer.Start();
 
