@@ -283,7 +283,7 @@ namespace Splamei_Stream_Timestamps
 
         public void addTimeStamp()
         {
-            if (!timer1.Enabled || delayStart || paused)
+            if (!timer1.Enabled || delayStart || paused || recordedDisplayTimer.Enabled)
             {
                 return;
             }
