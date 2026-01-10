@@ -243,6 +243,11 @@ namespace Splamei_Stream_Timestamps
 
         public void addTimeStamp()
         {
+            if (!timer1.Enabled)
+            {
+                return;
+            }
+
             recordedDisplayTimer.Start();
 
             timestamps.Add(elapsedMilliseconds);
