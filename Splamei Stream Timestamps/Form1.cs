@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -266,6 +267,16 @@ namespace Splamei_Stream_Timestamps
             recordedDisplayTimer.Start();
 
             recordedTxt.Text = $"Recorded {timestamps.Count} times";
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void starOnGitHubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Process.Start("https://github.com/splamei/splamei-stream-timestamps")) { }
         }
     }
 }

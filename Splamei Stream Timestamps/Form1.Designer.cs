@@ -312,6 +312,7 @@
             this.starOnGitHubToolStripMenuItem.Name = "starOnGitHubToolStripMenuItem";
             this.starOnGitHubToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.starOnGitHubToolStripMenuItem.Text = "Star on GitHub";
+            this.starOnGitHubToolStripMenuItem.Click += new System.EventHandler(this.starOnGitHubToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -326,6 +327,7 @@
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
