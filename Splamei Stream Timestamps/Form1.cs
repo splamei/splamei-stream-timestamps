@@ -46,6 +46,8 @@ namespace Splamei_Stream_Timestamps
                 startBtn.Enabled = false;
                 timer1.Start();
 
+                keyBindingComboBox.Enabled = false;
+
                 if (timeToWait <= 0)
                 {
                     progressBar.Style = ProgressBarStyle.Marquee;
@@ -79,6 +81,8 @@ namespace Splamei_Stream_Timestamps
             stopBtn.Enabled = true;
             recordTime.Enabled = false;
             startBtn.Enabled = false;
+
+            keyBindingComboBox.Enabled = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -121,6 +125,7 @@ namespace Splamei_Stream_Timestamps
 
             timer1.Stop();
             keyBindTimer.Stop();
+            keyBindingComboBox.Enabled = true;
             elapsedMilliseconds = 0;
             statusTxt.Text = "Not recording. Data recorded";
 
@@ -147,6 +152,8 @@ namespace Splamei_Stream_Timestamps
             paused = true;
 
             timer1.Stop();
+
+            keyBindingComboBox.Enabled = true;
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
