@@ -41,7 +41,6 @@ namespace Splamei_Stream_Timestamps
                 paused = false;
                 pauseBtn.Enabled = true;
                 stopBtn.Enabled = true;
-                recordTime.Enabled = true;
                 startBtn.Enabled = false;
                 timer1.Start();
 
@@ -52,6 +51,7 @@ namespace Splamei_Stream_Timestamps
                 else
                 {
                     stopwatch.Start();
+                    recordTime.Enabled = true;
                 }
 
                 keyBindingComboBox.Enabled = false;
