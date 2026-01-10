@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,13 @@ namespace Splamei_Stream_Timestamps
 {
     public partial class Form1 : Form
     {
+        [DllImport("User32.dll")]
+        static extern short GetAsyncKeyState(Int32 vKey);
+
+
+        public int recordKey = 0x70; // F1 key - https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+
+
         public long elapsedMilliseconds = 0;
         public float timeToWait = 0;
         public int timeToWaitTotal = 0;
@@ -65,6 +73,7 @@ namespace Splamei_Stream_Timestamps
 
             elapsedMilliseconds = 0;
             timer1.Start();
+            keyBindTimer.Start();
 
             pauseBtn.Enabled = true;
             stopBtn.Enabled = true;
@@ -111,6 +120,7 @@ namespace Splamei_Stream_Timestamps
             }
 
             timer1.Stop();
+            keyBindTimer.Stop();
             elapsedMilliseconds = 0;
             statusTxt.Text = "Not recording. Data recorded";
 
@@ -153,17 +163,7 @@ namespace Splamei_Stream_Timestamps
 
         private void recordTime_Click(object sender, EventArgs e)
         {
-            recordedDisplayTimer.Start();
-
-            timestamps.Add(elapsedMilliseconds);
-
-            timeDisplay.Items.Add(TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f"));
-
-            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
-            displayElapsedTime = false;
-            recordedDisplayTimer.Start();
-
-            recordedTxt.Text = $"Recorded {timestamps.Count} times";
+            addTimeStamp();
         }
 
         public void clearStamps()
@@ -199,6 +199,52 @@ namespace Splamei_Stream_Timestamps
         {
             displayElapsedTime = true;
             recordedDisplayTimer.Stop();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            short keyStatus = GetAsyncKeyState(recordKey);
+
+            if ((keyStatus & 1) == 1 && !recordedDisplayTimer.Enabled)
+            {
+                addTimeStamp();
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(keyBindingComboBox.SelectedItem.ToString()))
+            {
+                return;
+            }
+
+            if (keyBindingComboBox.SelectedItem.ToString() == "Num 0")
+            {
+                recordKey = 0x60;
+                return;
+            }
+
+            recordKey = 0x70 + keyBindingComboBox.SelectedIndex;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            keyBindingComboBox.SelectedIndex = 0;
+        }
+
+        public void addTimeStamp()
+        {
+            recordedDisplayTimer.Start();
+
+            timestamps.Add(elapsedMilliseconds);
+
+            timeDisplay.Items.Add(TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f"));
+
+            statusTxt.Text = "Recorded " + TimeSpan.FromMilliseconds(elapsedMilliseconds).ToString(@"hh\:mm\:ss\.f");
+            displayElapsedTime = false;
+            recordedDisplayTimer.Start();
+
+            recordedTxt.Text = $"Recorded {timestamps.Count} times";
         }
     }
 }

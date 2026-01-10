@@ -46,6 +46,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.recordedTxt = new System.Windows.Forms.Label();
+            this.keyBindTimer = new System.Windows.Forms.Timer(this.components);
+            this.keyBindingComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,7 +65,7 @@
             65536});
             this.delayNum.Location = new System.Drawing.Point(158, 23);
             this.delayNum.Name = "delayNum";
-            this.delayNum.Size = new System.Drawing.Size(259, 20);
+            this.delayNum.Size = new System.Drawing.Size(86, 20);
             this.delayNum.TabIndex = 0;
             // 
             // delayTxt
@@ -186,6 +189,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.keyBindingComboBox);
             this.groupBox1.Controls.Add(this.delayTxt);
             this.groupBox1.Controls.Add(this.delayNum);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -219,6 +224,56 @@
             this.recordedTxt.TabIndex = 13;
             this.recordedTxt.Text = "Recorded 0 times";
             // 
+            // keyBindTimer
+            // 
+            this.keyBindTimer.Interval = 10;
+            this.keyBindTimer.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // keyBindingComboBox
+            // 
+            this.keyBindingComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.keyBindingComboBox.FormattingEnabled = true;
+            this.keyBindingComboBox.Items.AddRange(new object[] {
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5",
+            "F6",
+            "F7",
+            "F8",
+            "F9",
+            "F10",
+            "F11",
+            "F12",
+            "F13",
+            "F14",
+            "F15",
+            "F16",
+            "F17",
+            "F18",
+            "F19",
+            "F20",
+            "F21",
+            "F22",
+            "F23",
+            "F24",
+            "Num 0"});
+            this.keyBindingComboBox.Location = new System.Drawing.Point(361, 22);
+            this.keyBindingComboBox.Name = "keyBindingComboBox";
+            this.keyBindingComboBox.Size = new System.Drawing.Size(56, 21);
+            this.keyBindingComboBox.TabIndex = 2;
+            this.keyBindingComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(250, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Keybinding to record";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -234,6 +289,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splamei Stream Timestamps";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -264,6 +320,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label recordedTxt;
+        private System.Windows.Forms.Timer keyBindTimer;
+        private System.Windows.Forms.ComboBox keyBindingComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 
