@@ -263,7 +263,8 @@
             "F22",
             "F23",
             "F24",
-            "Num 0"});
+            "Num 0",
+            "None"});
             this.keyBindingComboBox.Location = new System.Drawing.Point(361, 22);
             this.keyBindingComboBox.Name = "keyBindingComboBox";
             this.keyBindingComboBox.Size = new System.Drawing.Size(56, 21);

@@ -203,6 +203,11 @@ namespace Splamei_Stream_Timestamps
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            if (recordKey == 0)
+            {
+                return;
+            }
+
             short keyStatus = GetAsyncKeyState(recordKey);
 
             if ((keyStatus & 1) == 1 && !recordedDisplayTimer.Enabled)
@@ -222,6 +227,10 @@ namespace Splamei_Stream_Timestamps
             {
                 recordKey = 0x60;
                 return;
+            }
+            else if (keyBindingComboBox.SelectedItem.ToString() == "None")
+            {
+                recordKey = 0;
             }
 
             recordKey = 0x70 + keyBindingComboBox.SelectedIndex;
