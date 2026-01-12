@@ -2,6 +2,7 @@
 
 
 ![Checks](https://img.shields.io/github/check-runs/splamei/splamei-stream-timestamps/main)
+[![CodeFactor](https://www.codefactor.io/repository/github/splamei/splamei-stream-timestamps/badge)](https://www.codefactor.io/repository/github/splamei/splamei-stream-timestamps)
 ![Issues](https://img.shields.io/github/issues/splamei/splamei-stream-timestamps)
 ![License](https://img.shields.io/github/license/splamei/splamei-stream-timestamps)
 ![Repo Size](https://img.shields.io/github/repo-size/splamei/splamei-stream-timestamps)
