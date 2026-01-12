@@ -109,4 +109,10 @@ Any support to this repo would help a lot. You could help by:
 [Bluesky](https://bsky.app/profile/splamei.vtubers.social)
 [Discord](https://discord.gg/g2KTP5X9At)
 
+## License
+
+All code in this repo is licensed under the MIT Licence unless otherwise stated.
+
+All third-party licenses are under their respective license.
+
 ## Built with ❤️ in Visual Studio
