@@ -1,1 +1,1 @@
-By submitting a contribution, whether that be via an issue, Pull Request (PR) or other contribution method, you agree that your will will be licensed under the MIT Licence.
+By submitting a contribution, whether that be via an issue, Pull Request (PR) or other contribution method, you agree that your work will be licensed under the MIT Licence.
