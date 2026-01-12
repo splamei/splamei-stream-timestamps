@@ -44,6 +44,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.recordedDisplayTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.keyBindingComboBox = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,6 @@
             this.starOnGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.delayNum)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,6 +73,11 @@
             0,
             65536});
             this.delayNum.Location = new System.Drawing.Point(158, 23);
+            this.delayNum.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
             this.delayNum.Name = "delayNum";
             this.delayNum.Size = new System.Drawing.Size(86, 20);
             this.delayNum.TabIndex = 0;
@@ -196,6 +201,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(473, 40);
             this.panel1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(395, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "By Splamei";
             // 
             // groupBox1
             // 
@@ -337,16 +352,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(395, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "By Splamei";
             // 
             // Form1
             // 

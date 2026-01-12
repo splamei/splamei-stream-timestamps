@@ -105,7 +105,7 @@ namespace Splamei_Stream_Timestamps
         {
             if (delayStart)
             {
-                statusTxt.Text = "Recording in " + TimeSpan.FromMilliseconds(timeToWaitTotal - delayStopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff");
+                statusTxt.Text = "Recording in " + TimeSpan.FromMilliseconds(timeToWaitTotal - delayStopwatch.ElapsedMilliseconds).ToString(@"mm\:ss\.ff");
 
                 if (delayStopwatch.ElapsedMilliseconds >= timeToWaitTotal)
                 {
