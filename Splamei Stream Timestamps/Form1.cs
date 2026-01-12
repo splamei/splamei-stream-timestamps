@@ -14,9 +14,7 @@ namespace Splamei_Stream_Timestamps
         public Stopwatch stopwatch = new Stopwatch();
         public Stopwatch delayStopwatch = new Stopwatch();
 
-
         public int recordKey = 0x70; // F1 key - https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
-
 
         //public long elapsedMilliseconds = 0;
         //public float timeToWait = 0;
@@ -107,7 +105,6 @@ namespace Splamei_Stream_Timestamps
         {
             if (delayStart)
             {
-
                 statusTxt.Text = "Recording in " + TimeSpan.FromMilliseconds(timeToWaitTotal - delayStopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff");
 
                 if (delayStopwatch.ElapsedMilliseconds >= timeToWaitTotal)
