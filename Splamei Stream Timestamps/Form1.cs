@@ -265,7 +265,7 @@ namespace Splamei_Stream_Timestamps
                 recordKey = 0x60;
                 return;
             }
-            else if (keyBindingComboBox.SelectedItem.ToString() == "None")
+            else if (keyBindingComboBox.SelectedItem.ToString() == "Disabled")
             {
                 recordKey = 0;
             }

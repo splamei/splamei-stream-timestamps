@@ -72,7 +72,7 @@
             0,
             0,
             65536});
-            this.delayNum.Location = new System.Drawing.Point(158, 23);
+            this.delayNum.Location = new System.Drawing.Point(118, 22);
             this.delayNum.Maximum = new decimal(new int[] {
             120,
             0,
@@ -85,11 +85,11 @@
             // delayTxt
             // 
             this.delayTxt.AutoSize = true;
-            this.delayTxt.Location = new System.Drawing.Point(6, 26);
+            this.delayTxt.Location = new System.Drawing.Point(6, 25);
             this.delayTxt.Name = "delayTxt";
-            this.delayTxt.Size = new System.Drawing.Size(146, 13);
+            this.delayTxt.Size = new System.Drawing.Size(106, 13);
             this.delayTxt.TabIndex = 1;
-            this.delayTxt.Text = "Stream delay offset (seconds)";
+            this.delayTxt.Text = "Start delay (seconds)";
             this.toolTip1.SetToolTip(this.delayTxt, "The time it takes for your stream to be displayed to views (It\'s often 8 seconds " +
         "on normal latency)");
             // 
@@ -230,7 +230,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 26);
+            this.label1.Location = new System.Drawing.Point(221, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 3;
@@ -266,10 +266,10 @@
             "F23",
             "F24",
             "Num 0",
-            "None"});
-            this.keyBindingComboBox.Location = new System.Drawing.Point(361, 22);
+            "Disabled"});
+            this.keyBindingComboBox.Location = new System.Drawing.Point(332, 22);
             this.keyBindingComboBox.Name = "keyBindingComboBox";
-            this.keyBindingComboBox.Size = new System.Drawing.Size(56, 21);
+            this.keyBindingComboBox.Size = new System.Drawing.Size(86, 21);
             this.keyBindingComboBox.TabIndex = 2;
             this.keyBindingComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
