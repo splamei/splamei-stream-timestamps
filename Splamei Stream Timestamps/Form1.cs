@@ -192,7 +192,7 @@ namespace Splamei_Stream_Timestamps
 
             keyBindingComboBox.Enabled = true;
 
-            statusTxt.Text = "Paused";
+            statusTxt.Text = $"Paused at {TimeSpan.FromMilliseconds(stopwatch.ElapsedMilliseconds).ToString(@"hh\:mm\:ss\.ff")}";
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
