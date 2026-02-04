@@ -191,6 +191,8 @@ namespace Splamei_Stream_Timestamps
             delayStopwatch.Stop();
 
             keyBindingComboBox.Enabled = true;
+
+            statusTxt.Text = "Paused";
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
