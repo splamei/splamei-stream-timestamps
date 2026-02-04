@@ -23,10 +23,7 @@ namespace Splamei_Stream_Timestamps
             mainform = mainForm;
         }
 
-        private void NewUpdate_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void NewUpdate_Load(object sender, EventArgs e) { }
 
         private void button2_Click(object sender, EventArgs e)
         {
