@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Splamei_Stream_Timestamps
@@ -16,10 +19,14 @@ namespace Splamei_Stream_Timestamps
 
         public int recordKey = 0x70; // F1 key - https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 
+        public string verCode = "1000";
+
         //public long elapsedMilliseconds = 0;
         //public float timeToWait = 0;
         public int timeToWaitTotal = 0;
         public bool delayStart = false;
+
+        public bool forceClose = false;
 
         public bool waiting = false;
         public bool paused = false;
@@ -226,9 +233,12 @@ namespace Splamei_Stream_Timestamps
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit? All timestamps will be lost!", "Splamei Stream Timestamps", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (!forceClose)
             {
-                e.Cancel = true;
+                if (MessageBox.Show("Are you sure you want to exit? All timestamps will be lost!", "Splamei Stream Timestamps", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
@@ -312,6 +322,71 @@ namespace Splamei_Stream_Timestamps
         {
             About about = new About();
             about.ShowDialog();
+        }
+
+        public static Task<string> makeWebRequest(string url)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.ContentType = "text/html";
+            request.Method = "GET";
+
+            request.Timeout = 2000;
+
+            Task<WebResponse> task = Task.Factory.FromAsync(
+                request.BeginGetResponse,
+                asyncResult =>
+                {
+                    try
+                    {
+                        return request.EndGetResponse(asyncResult);
+                    }
+                    catch (WebException ex)
+                    {
+                        if (ex.Response != null)
+                        {
+                            return ex.Response;
+                        }
+                        throw;
+                    }
+                },
+                (object)null);
+
+            return task.ContinueWith(t => readStreamFromResponse(t.Result));
+        }
+
+        private static string readStreamFromResponse(WebResponse response)
+        {
+            using (Stream responseStream = response.GetResponseStream())
+            using (StreamReader sr = new StreamReader(responseStream))
+            {
+                string strContent = sr.ReadToEnd();
+                return strContent;
+            }
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            var task = makeWebRequest("https://www.veemo.uk/net/stream%20tools/timestamps/ver");
+
+            if (!task.IsFaulted)
+            {
+                string result = task.Result;
+
+                if (result != verCode)
+                {
+                    var task2 = makeWebRequest("https://www.veemo.uk/net/stream%20tools/timestamps/patch");
+                    string patchResult = task2.Result;
+
+                    using (NewUpdate newUpdate = new NewUpdate(patchResult, this))
+                    {
+                        newUpdate.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                Debug.WriteLine("hello");
+            }
         }
     }
 }
