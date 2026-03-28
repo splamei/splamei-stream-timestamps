@@ -369,26 +369,33 @@ namespace Splamei_Stream_Timestamps
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            var task = makeWebRequest("https://www.veemo.uk/net/stream%20tools/timestamps/ver");
-
-            if (!task.IsFaulted)
+            try
             {
-                string result = task.Result;
+                var task = makeWebRequest("https://www.veemo.uk/net/stream%20tools/timestamps/ver");
 
-                if (result != verCode)
+                if (!task.IsFaulted)
                 {
-                    var task2 = makeWebRequest("https://www.veemo.uk/net/stream%20tools/timestamps/patch");
-                    string patchResult = task2.Result;
+                    string result = task.Result;
 
-                    using (NewUpdate newUpdate = new NewUpdate(patchResult, this))
+                    if (result != verCode)
                     {
-                        newUpdate.ShowDialog();
+                        var task2 = makeWebRequest("https://www.veemo.uk/net/stream%20tools/timestamps/patch");
+                        string patchResult = task2.Result;
+
+                        using (NewUpdate newUpdate = new NewUpdate(patchResult, this))
+                        {
+                            newUpdate.ShowDialog();
+                        }
                     }
                 }
+                else
+                {
+                    Debug.WriteLine("hello");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Debug.WriteLine("hello");
+                Debug.WriteLine("Failed to check for updates! - " + ex.Message);
             }
         }
     }
