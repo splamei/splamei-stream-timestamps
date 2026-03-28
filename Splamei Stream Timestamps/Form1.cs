@@ -21,8 +21,6 @@ namespace Splamei_Stream_Timestamps
 
         public string verCode = "1000";
 
-        //public long elapsedMilliseconds = 0;
-        //public float timeToWait = 0;
         public int timeToWaitTotal = 0;
         public bool delayStart = false;
 
