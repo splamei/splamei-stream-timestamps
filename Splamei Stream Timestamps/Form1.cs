@@ -71,9 +71,12 @@ namespace Splamei_Stream_Timestamps
                 return;
             }
 
-            if (MessageBox.Show("All timestamps you currently have added will be lost and can't be recovered. Do you want to continue?", "Splamei Stream Timestamps", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (timestamps.Count != 0)
             {
-                return;
+                if (MessageBox.Show("All timestamps you currently have added will be lost and can't be recovered. Do you want to continue?", "Splamei Stream Timestamps", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
             }
 
             clearStamps();
@@ -235,7 +238,7 @@ namespace Splamei_Stream_Timestamps
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!forceClose)
+            if (!forceClose && timestamps.Count != 0)
             {
                 if (MessageBox.Show("Are you sure you want to exit? All timestamps will be lost!", "Splamei Stream Timestamps", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
