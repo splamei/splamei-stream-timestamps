@@ -186,7 +186,7 @@
             // 
             // recordedDisplayTimer
             // 
-            this.recordedDisplayTimer.Interval = 5000;
+            this.recordedDisplayTimer.Interval = 2000;
             this.recordedDisplayTimer.Tick += new System.EventHandler(this.recordedDisplayTimer_Tick);
             // 
             // panel1
