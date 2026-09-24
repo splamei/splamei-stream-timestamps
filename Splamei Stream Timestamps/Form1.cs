@@ -398,5 +398,10 @@ namespace Splamei_Stream_Timestamps
                 Debug.WriteLine("Failed to check for updates! - " + ex.Message);
             }
         }
+
+        private void onTopCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = onTopCheckbox.Checked;
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.onTopCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.keyBindingComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -79,7 +80,7 @@
             0,
             0});
             this.delayNum.Name = "delayNum";
-            this.delayNum.Size = new System.Drawing.Size(86, 20);
+            this.delayNum.Size = new System.Drawing.Size(58, 20);
             this.delayNum.TabIndex = 0;
             // 
             // delayTxt
@@ -216,6 +217,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.onTopCheckbox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.keyBindingComboBox);
             this.groupBox1.Controls.Add(this.delayTxt);
@@ -227,14 +229,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Config";
             // 
+            // onTopCheckbox
+            // 
+            this.onTopCheckbox.AutoSize = true;
+            this.onTopCheckbox.Location = new System.Drawing.Point(339, 23);
+            this.onTopCheckbox.Name = "onTopCheckbox";
+            this.onTopCheckbox.Size = new System.Drawing.Size(86, 17);
+            this.onTopCheckbox.TabIndex = 4;
+            this.onTopCheckbox.Text = "Show on top";
+            this.onTopCheckbox.UseVisualStyleBackColor = true;
+            this.onTopCheckbox.CheckedChanged += new System.EventHandler(this.onTopCheckbox_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(221, 25);
+            this.label1.Location = new System.Drawing.Point(182, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Keybinding to record";
+            this.label1.Text = "Keybinding";
             // 
             // keyBindingComboBox
             // 
@@ -267,7 +280,7 @@
             "F24",
             "Num 0",
             "Disabled"});
-            this.keyBindingComboBox.Location = new System.Drawing.Point(332, 22);
+            this.keyBindingComboBox.Location = new System.Drawing.Point(245, 20);
             this.keyBindingComboBox.Name = "keyBindingComboBox";
             this.keyBindingComboBox.Size = new System.Drawing.Size(86, 21);
             this.keyBindingComboBox.TabIndex = 2;
@@ -413,6 +426,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox onTopCheckbox;
     }
 }
 
